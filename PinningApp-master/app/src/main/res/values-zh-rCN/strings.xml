@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">固定应用</string>
+    <string name="app_more">固定应用，类似于IOS的引导式访问</string>
+    <string name="home_other_lock_app_will_lock">即将锁定当前应用</string>
+    <string name="home_other_lock_app_lock">已锁定当前应用</string>
+    <string name="home_other_lock_app_unlock">已解锁当前应用</string>
+    <string name="home_other_lock_app_will_unlock">即将解锁当前应用</string>
+    <string name="home_other_lock_app_e">请在被锁定应用界面解锁</string>
+    <string name="home_other_lock_app_r">超次还原</string>
+</resources>
