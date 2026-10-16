@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PinningApp</string>
+    <string name="app_more">Pinning App, Guided access similar to IOS</string>
+    <string name="home_other_lock_app_will_lock">Will lock App</string>
+    <string name="home_other_lock_app_lock">Lock App</string>
+    <string name="home_other_lock_app_unlock">Unlock App</string>
+    <string name="home_other_lock_app_will_unlock">Will Unlock App</string>
+    <string name="home_other_lock_app_r">Restore</string>
+    <string name="home_other_lock_app_e">Only on pinning apps can unlock</string>
+</resources>
