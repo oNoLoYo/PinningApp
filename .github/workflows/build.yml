@@ -1,0 +1,41 @@
+name: Build PinningApp
+
+on:
+  push:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    # GitHub 官方 runner 是 x86_64 Ubuntu，可直接运行 Android 原生工具链，无需 qemu
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 代码
+        uses: actions/checkout@v4
+
+      # 项目要求 Java 20 兼容，AGP 8.2 运行时需要 JDK 17+
+      - name: 设置 JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # 设置 Android SDK，自动安装 compileSdk=34 和所需 build-tools
+      - name: 设置 Android SDK
+        uses: android-actions/setup-android@v3
+
+      # gradlew 需要执行权限
+      - name: 设置 gradlew 执行权限
+        run: chmod +x gradlew
+
+      # 先构建 debug 包（用系统默认 debug 签名，无需配置任何 Secrets）
+      - name: 构建 Debug APK
+        run: ./gradlew assembleDebug --no-daemon
+
+      # 上传产物
+      - name: 上传 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: PinningApp-Debug
+          path: app/build/outputs/apk/debug/*.apk
